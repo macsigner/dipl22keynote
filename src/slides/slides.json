@@ -1,0 +1,5 @@
+{
+    "layout": "slide.njk",
+    "tags": "slides",
+    "permalink": "{{ title | slugify }}/index.html"
+}

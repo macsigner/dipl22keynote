@@ -1,0 +1,36 @@
+{% from '../macros/nav-item.njk' import navItemMacro %}
+{% set prevItem = false %}
+{% set currentItem = false %}
+{% set nextItem = false %}
+{% for navItem in collections.slides %}
+    {% if currentItem %}
+        {% set nextItem = navItem %}
+    {% endif %}
+    {% if page.url == navItem.url %}
+        {% set prevItem = previous %}
+        {% set currentItem = navItem %}
+    {% endif %}
+    {% set previous = navItem %}
+{%- endfor %}
+
+<ul>
+
+    {% if prevItem %}
+        {{ navItemMacro(prevItem) }}
+    {% else %}
+        <li></li>
+    {% endif %}
+
+    {% if currentItem %}
+        {{ navItemMacro(currentItem) }}
+    {% else %}
+        <li></li>
+    {% endif %}
+
+    {% if nextItem %}
+        {{ navItemMacro(nextItem) }}
+    {% else %}
+        <li></li>
+    {% endif %}
+
+</ul>

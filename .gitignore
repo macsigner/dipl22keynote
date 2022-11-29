@@ -1,0 +1,11 @@
+/.idea
+/_site
+
+# Local Dev files
+.env
+.env.local
+.DS_Store
+.travis.yml
+/.sass-cache
+/node_modules/
+/public

@@ -1,0 +1,6 @@
+{% macro navItemMacro(item) %}
+    <li>
+        <a href="{{ item.url }}" {% if page.url == item.url %} aria-current {% endif %} {% if item.data.accesskey %} accesskey="{{ item.data.accesskey }}" {% endif %}
+           title="{{ item.data.title }}">{{ item.data.title }}</a>
+    </li>
+{% endmacro %}

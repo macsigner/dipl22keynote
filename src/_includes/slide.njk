@@ -1,0 +1,10 @@
+{% extends 'base.njk' %}
+
+{% block footer %}
+    {{ super() }}
+    <nav class="main-navigation base-width">
+        {% include 'parts/navigation.njk' %}
+    </nav>
+
+    {% include 'parts/prev-next-page.njk' %}
+{% endblock footer %}

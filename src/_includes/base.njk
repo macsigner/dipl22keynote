@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keynotes | {{ title }}</title>
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicons/apple-touch-icon.png' | url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicons/favicon-32x32.png' | url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicons/favicon-16x16.png' | url }}">
+    <link rel="manifest" href="{{ '/assets/images/favicons/site.webmanifest' | url }}">
+    <link rel="mask-icon" href="{{ '/assets/images/favicons/safari-pinned-tab.svg' | url }}" color="#f28c31">
+    <link rel="shortcut icon" href="{{ '/assets/images/favicons/favicon.ico' | url }}">
+    <meta name="msapplication-TileColor" content="#f28c31">
+    <meta name="msapplication-config" content="{{ '/assets/images/favicons/browserconfig.xml' | url }}">
+    <meta name="theme-color" content="#E6E4DD">
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/reset.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
+</head>
+<body class="{% if slideLayout %} slide-layout-{{ slideLayout }}{% endif %}">
+<header class="main-header">
+    {% if subtitle %}<p>{{ subtitle }}</p>{% endif %}
+
+    <h1>{{ title }}</h1>
+</header>
+
+<main>
+
+    {% block main %}
+        {{ content | safe }}
+    {% endblock %}
+
+</main>
+<footer>
+    {% block footer %}
+    {% endblock footer %}
+</footer>
+<script src="{{ '/assets/js/scripts.js' | url }}"></script>
+</body>
+</html>
