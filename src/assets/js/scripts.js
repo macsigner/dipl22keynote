@@ -54,14 +54,16 @@ if (nav) {
 }
 
 window.addEventListener('keydown', (e) => {
-    switch (e.code) {
-        case 'ArrowRight':
-        case 'Space':
-            next();
-            break;
-        case 'ArrowLeft':
-            prev();
-            break;
+    if (window.innerHeight + window.scrollY === document.documentElement.offsetHeight) {
+        switch (e.code) {
+            case 'ArrowRight':
+            case 'Space':
+                next();
+                break;
+            case 'ArrowLeft':
+                prev();
+                break;
+        }
     }
 });
 

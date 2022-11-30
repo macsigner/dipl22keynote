@@ -29,6 +29,26 @@ module.exports = function(eleventyConfig) {
         './node_modules/prismjs/themes/prism.css': '/assets/css/prism.css',
     });
 
+    eleventyConfig.addCollection("keynoteSlides", function(collectionApi) {
+        const content = collectionApi.getAll().filter(item => {
+            return item.data.tags ? item.data.tags.includes('slides') : false;
+        }).sort((a, b) => {
+            if (a.data.page.filePathStem > b.data.page.filePathStem) {
+                return 1;
+            } else if (a.data.page.filePathStem < b.data.page.filePathStem) {
+                return -1;
+            }
+
+            return 0;
+        });
+
+        content.forEach(item => {
+            console.log(item.data.title);
+        });
+
+        return content;
+    });
+
     return {
         dir: {
             input: 'src',

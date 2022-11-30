@@ -1,5 +1,5 @@
 <ul>
-    {% for navItem in collections.slides %}
+    {% for navItem in collections.keynoteSlides %}
         <li{% if page.url == navItem.url %} aria-current{% endif %}>
             <a href="{{ navItem.url | url }}" {% if page.url == navItem.url %} aria-current {% endif %} {% if navItem.data.accesskey %} accesskey="{{ navItem.data.accesskey }}" {% endif %} title="{{ navItem.data.title }}">{{ navItem.data.title }}</a>
         </li>
