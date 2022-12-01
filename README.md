@@ -1,7 +1,8 @@
 Keynotes
 ========
 
-Preview on [https://macsigner.github.io/keynote/](https://macsigner.github.io/keynote/)
+Preview on [https://macsigner.github.io/dipl22keynote/](https://macsigner.github.io/dipl22keynote/)
+
 ## `slideLayouts`
 
 | Name          | What does it do                                    |
@@ -9,3 +10,11 @@ Preview on [https://macsigner.github.io/keynote/](https://macsigner.github.io/ke
 | title         | To show the title pushed to the bottom of the page |
 | section-title | Large title in the center of the screen            |
 | image         | Give the image some space                          |
+
+```markdown
+---
+slideLayout: title
+---
+```
+
+will show a slide with the 
