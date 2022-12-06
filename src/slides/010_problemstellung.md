@@ -1,7 +1,6 @@
 ---
 title: Renderansatz im Überblick 
 subtitle: Eventlistenerhölle 
-date: 2022-09-01
 ---
 
 __Kurzgesagt:__ Anstatt Operationen direkt auf dem Node auszuführen, wird ein Array gehandhabt.\
