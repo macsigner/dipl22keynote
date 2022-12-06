@@ -1,8 +1,8 @@
 ---
 layout: base.njk
-title: Keynotes
+title: Präsentationen
 ---
 
-- [Renderansatz & Eventdelegation](./renderansatz-eventdelegation/)
-- [Custom Properties](#)
-- [Arrays](#)
+- [Präsentation](./intro/)
+
+<div>{%- include 'parts/navigation.njk' -%}</div>

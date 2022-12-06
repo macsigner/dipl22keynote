@@ -1,18 +1,16 @@
 ---
-title: Renderansatz im Überblick 
-subtitle: Eventlistenerhölle 
+title: Problemstellung
 ---
 
-__Kurzgesagt:__ Anstatt Operationen direkt auf dem Node auszuführen, wird ein Array gehandhabt.\
-Der Inhalt des Arrays wird nach jeder Operation gerendert.
+## sachlich
 
-## Lösung zum Problem
+- zeitlich begrenzt
+- arm an Rückmeldungen
+- struktureller Aufbau
 
-- Datensynchronisation mit Markup
-- Filterbarkeit Markup
-- Speicherung Daten
+## persönlich
 
-## Problem zur Lösung
-
-- Doppelt moppeln
-- Filtern & Co. ist jetzt Dein Bier
+- (teils) neugierig
+- (teils) verbissen
+- (teils) blind gegenüber Details
+- (grösstenteils) unkoordiniert
