@@ -310,7 +310,7 @@ body > main > :where(ul, ol) li {
 body > main > :where(ul, ol) li:before {
     content: '';
     display: table-cell;
-    vertical-align: top;
+    vertical-align: baseline;
     padding-right: 1rem;
     color: var(--color-primary);
 }
@@ -326,13 +326,15 @@ body > main ul > li::before {
     margin-top: .1em;
 }
 
-body > main ol > li {
-    counter-increment: counter;
+body > main ol {
+    counter-reset: counter;
 }
 
 body > main ol > li::before {
-    content: counter(counter) '.';
+    counter-increment: counter;
+    content: counters(counter, '.', decimal);
     font-weight: var(--font-weight-bold);
+    font-size: 1.2em;
 }
 
 body > main a,

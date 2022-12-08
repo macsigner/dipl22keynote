@@ -5,8 +5,7 @@ title: Problemstellung
 ## sachlich
 
 - zeitlich begrenzt
-- arm an Rückmeldungen
-- struktureller Aufbau
+- Beschränkung auf eigenen Code mit Ausnahme der Nodemodule für den Build 
 
 ## persönlich
 
