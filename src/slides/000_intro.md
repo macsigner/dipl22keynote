@@ -1,6 +1,6 @@
 ---
 title: Vorgehen bei der Umsetzung
-subtitle: Dr SASS-Love oder wie ich lernte das DOM zu lieben
+subtitle: Dr. Node Love or: How I Learned to Start Worrying and Love the DOM
 permalink: intro/
 slideLayout: title
 ---

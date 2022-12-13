@@ -1,15 +1,9 @@
 ---
 title: Problemstellung
+subtitle: One Flew Over the Todo's Nest
 ---
 
-## sachlich
-
-- zeitlich begrenzt
-- Beschränkung auf eigenen Code mit Ausnahme der Nodemodule für den Build 
-
-## persönlich
-
-- (teils) neugierig
-- (teils) verbissen
-- (teils) blind gegenüber Details
-- (grösstenteils) unkoordiniert
+- Es ist ein Quasiprojekt
+- Ich bin extremst __un__organisiert
+- Ich mache schnell Fehler bei repetitiven Aufgaben
+- Ich ignoriere das Dokumentieren/Kommentieren so lange wie möglich
