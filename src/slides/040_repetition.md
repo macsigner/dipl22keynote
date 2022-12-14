@@ -1,6 +1,6 @@
 ---
 title: Fehler bei repetitiven Aufgaben 
-subtitle: Star Trek IV - The Voyage Home
+subtitle: Star Wreck IV - The Voyage Prone
 ---
 
 - Repetitive Aufgaben umbauen/ersetzen durch "spannendere"
