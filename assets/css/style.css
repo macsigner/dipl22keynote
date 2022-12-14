@@ -291,24 +291,50 @@ body > main > ul {
     font-weight: 500;
 }
 
+body > main ol {
+    counter-reset: counter;
+}
+
+body > main > :where(ul, ol) {
+    display: table;
+}
+
+body > main > :where(ul, ol) :where(ul, ol) {
+    margin-bottom: 0;
+}
+
+body > main > :where(ul, ol) li {
+    display: table-row;
+}
+
+body > main > :where(ul, ol) li:before {
+    content: '';
+    display: table-cell;
+    vertical-align: baseline;
+    padding-right: 1rem;
+    color: var(--color-primary);
+}
+
 body > main > ul > li {
-    position: relative;
     margin-bottom: .2em;
     padding-left: 1.2em;
     line-height: 1.4;
 }
 
-body > main > ul > li::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    align-self: start;
+body > main ul > li::before {
+    content: '▶';
     margin-top: .1em;
-    border-style: solid;
-    border-width: .5em 0 .5em .6em;
-    border-color: transparent transparent transparent var(--color-primary);
+}
+
+body > main ol {
+    counter-reset: counter;
+}
+
+body > main ol > li::before {
+    counter-increment: counter;
+    content: counters(counter, '.', decimal);
+    font-weight: var(--font-weight-bold);
+    font-size: 1.2em;
 }
 
 body > main a,
