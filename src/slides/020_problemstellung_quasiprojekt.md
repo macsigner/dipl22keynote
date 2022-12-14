@@ -4,7 +4,7 @@ subtitle: Matricks
 ---
 
 - Friss oder stirb
-- Wichtige Bereiche
+- Wichtige Bereiche Redaktion
   - News
   - Navigation
 - "Verzicht" auf Frontendframeworks, -Bilbliotheken und -Plugins

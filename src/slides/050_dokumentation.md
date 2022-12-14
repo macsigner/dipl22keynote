@@ -1,6 +1,6 @@
 ---
 title: Doku ignorieren 
-subtitle: Mac Signer's Day Off
+subtitle: Merry Appenzeller's Day Off
 ---
 
 - Die Doku so früh wie möglich beginnen
