@@ -209,6 +209,8 @@ body > header {
     margin-bottom: 0;
     padding-bottom: 0;
     font-size: 1.2rem;
+    animation: headerIn .3s .3s ease-in both;
+    transform-origin: 0 0;
 }
 
 body > header > p {
@@ -277,6 +279,23 @@ body.slide-layout-image > main img {
 body > footer {
     margin-top: 0;
     font-size: 2rem;
+}
+
+body > footer > nav.fade-in {
+    animation-name: footerIn;
+    animation-delay: .8s;
+}
+
+@keyframes footerIn {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 body > main > p > code,
@@ -441,4 +460,38 @@ code[class*="language-"],
 pre[class*="language-"] {
     font-size: .7em;
     line-height: 1.1;
+}
+
+.fade-in {
+    animation-name: fadeIn;
+    animation-duration: .3s;
+    animation-timing-function: ease-in;
+    animation-play-state: paused;
+    animation-fill-mode: both;
+}
+
+.fade-in.active {
+    animation-play-state: running;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes headerIn {
+    from {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
