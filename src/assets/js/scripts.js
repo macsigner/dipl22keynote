@@ -1,18 +1,55 @@
 'use strict';
 
+let animationTags = [
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'li',
+    '.main-navigation',
+]
+/**
+ *
+ * @param {Array} prev
+ * @param {HTMLElement} current
+ */
+const filterMainItems = (prev, current) => {
+    if (animationTags.reduce((a, b) => a || current.matches(b), false)) {
+        prev.push(current);
+    }
+
+    if (current.children.length) {
+        let filtered = Array.from(current.children).reduce(filterMainItems, []);
+        prev.push(...filtered);
+    }
+
+    return prev;
+}
+
+const mainItems = Array.from(document.querySelectorAll('main > *'))
+    .reduce(filterMainItems, []);
+
+mainItems.push(document.querySelector('.main-navigation'));
+
+mainItems.forEach(el => el.classList.add('fade-in'));
+
 const nav = document.querySelector('body > footer > nav');
 
-const setLinkItemWidths = function (nl) {
+const setLinkItemWidths = function(nl) {
     nl.forEach(el => {
         el.style.setProperty('--item-width', el.scrollWidth + 'px');
     });
 };
 
-const getCurrentSlide = function () {
+const getCurrentSlide = function() {
     return document.querySelector('body > footer nav a[aria-current]');
 }
 
-const prev = function () {
+let count = 0;
+
+const prev = function() {
     const currentSlide = getCurrentSlide();
 
     if (!currentSlide) {
@@ -29,19 +66,30 @@ const prev = function () {
 };
 
 const next = function() {
-    const currentSlide = getCurrentSlide();
+    console.log('next');
+    if (count < mainItems.length) {
+        mainItems[count].classList.add('active');
+        count++;
 
-    if (!currentSlide) {
-        return;
+        if (count === mainItems.length - 1) {
+            next();
+        }
+
+    } else {
+        const currentSlide = getCurrentSlide();
+
+        if (!currentSlide) {
+            return;
+        }
+
+        const nextSlide = currentSlide.closest('li').nextElementSibling;
+
+        if (!nextSlide) {
+            return;
+        }
+
+        nextSlide.querySelector('a').click();
     }
-
-    const nextSlide = currentSlide.closest('li').nextElementSibling;
-
-    if (!nextSlide) {
-        return;
-    }
-
-    nextSlide.querySelector('a').click();
 };
 
 if (nav) {
@@ -66,4 +114,3 @@ window.addEventListener('keydown', (e) => {
         }
     }
 });
-
