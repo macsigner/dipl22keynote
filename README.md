@@ -17,4 +17,4 @@ slideLayout: title
 ---
 ```
 
-will show a slide with the 
+will show a slide with the title and subtitle on the bottom.

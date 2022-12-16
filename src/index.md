@@ -3,6 +3,6 @@ layout: base.njk
 title: Präsentationen
 ---
 
-- [Präsentation](./intro/)
+### Präsentationen
 
-<div>{%- include 'parts/navigation.njk' -%}</div>
+- [Präsentation](./intro/)
