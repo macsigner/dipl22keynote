@@ -1,6 +1,6 @@
 export default class SlideNavigation {
     constructor() {
-        let animationTags = [
+        this.animationTags = [
             'h1',
             'h2',
             'h3',
@@ -9,92 +9,98 @@ export default class SlideNavigation {
             'h6',
             'li',
             '.main-navigation',
-        ]
-        /**
-         *
-         * @param {Array} prev
-         * @param {HTMLElement} current
-         */
-        const filterMainItems = (prev, current) => {
-            if (animationTags.reduce((a, b) => a || current.matches(b), false)) {
-                prev.push(current);
+        ];
+
+        this._filterMainItems = this._filterMainItems.bind(this);
+        this.mainItems = Array.from(document.querySelectorAll('main > *'))
+            .reduce(this._filterMainItems, []);
+
+        this.mainItems.push(document.querySelector('.main-navigation'));
+
+        this.mainItems.forEach(el => el.classList.add('fade-in'));
+
+        this.count = 0;
+
+        window.addEventListener('keydown', (e) => this._keyListener(e));
+
+        this.next();
+    }
+
+    next() {
+        if (this.count < this.mainItems.length) {
+            this.mainItems[this.count].classList.add('active');
+            this.count++;
+
+            if (this.count === this.mainItems.length - 1) {
+                this.next();
+                console.log('last');
+                document.body.classList.add('done');
             }
 
-            if (current.children.length) {
-                let filtered = Array.from(current.children).reduce(filterMainItems, []);
-                prev.push(...filtered);
-            }
-
-            return prev;
-        }
-
-        const mainItems = Array.from(document.querySelectorAll('main > *'))
-            .reduce(filterMainItems, []);
-
-        mainItems.push(document.querySelector('.main-navigation'));
-
-        mainItems.forEach(el => el.classList.add('fade-in'));
-
-        const getCurrentSlide = function() {
-            return document.querySelector('body > footer nav a[aria-current]');
-        }
-
-        let count = 0;
-
-        const prev = function() {
-            const currentSlide = getCurrentSlide();
+        } else {
+            const currentSlide = this.getCurrentSlide();
 
             if (!currentSlide) {
                 return;
             }
 
-            const prevSlide = currentSlide.closest('li').previousElementSibling;
+            const nextSlide = currentSlide.closest('li').nextElementSibling;
 
-            if (!prevSlide) {
+            if (!nextSlide) {
                 return;
             }
 
-            prevSlide.querySelector('a').click();
-        };
+            nextSlide.querySelector('a').click();
+        }
+    }
 
-        const next = function() {
-            if (count < mainItems.length) {
-                mainItems[count].classList.add('active');
-                count++;
+    prev() {
+        const currentSlide = this.getCurrentSlide();
 
-                if (count === mainItems.length - 1) {
-                    next();
-                }
+        if (!currentSlide) {
+            return;
+        }
 
-            } else {
-                const currentSlide = getCurrentSlide();
+        const prevSlide = currentSlide.closest('li').previousElementSibling;
 
-                if (!currentSlide) {
-                    return;
-                }
+        if (!prevSlide) {
+            return;
+        }
 
-                const nextSlide = currentSlide.closest('li').nextElementSibling;
+        prevSlide.querySelector('a').click();
+    }
 
-                if (!nextSlide) {
-                    return;
-                }
+    getCurrentSlide() {
+        return document.querySelector('body > footer nav a[aria-current]');
+    }
 
-                nextSlide.querySelector('a').click();
-            }
-        };
+    _keyListener(e) {
+        switch (e.code) {
+            case 'ArrowRight':
+            case 'Space':
+                this.next();
+                break;
+            case 'ArrowLeft':
+                this.prev();
+                break;
+        }
+    }
 
-        window.addEventListener('keydown', (e) => {
-            if (window.innerHeight + window.scrollY === document.documentElement.offsetHeight) {
-                switch (e.code) {
-                    case 'ArrowRight':
-                    case 'Space':
-                        next();
-                        break;
-                    case 'ArrowLeft':
-                        prev();
-                        break;
-                }
-            }
-        });
+    /**
+     *
+     * @param {Array} prev
+     * @param {HTMLElement} current
+     */
+    _filterMainItems(prev, current) {
+        if (this.animationTags.reduce((a, b) => a || current.matches(b), false)) {
+            prev.push(current);
+        }
+
+        if (current.children.length) {
+            let filtered = Array.from(current.children).reduce(this._filterMainItems, []);
+            prev.push(...filtered);
+        }
+
+        return prev;
     }
 }
