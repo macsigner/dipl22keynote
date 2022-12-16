@@ -33,7 +33,6 @@ export default class SlideNavigation {
 
             if (this.count === this.mainItems.length - 1) {
                 this.next();
-                console.log('last');
                 document.body.classList.add('done');
             }
 
@@ -74,14 +73,24 @@ export default class SlideNavigation {
         return document.querySelector('body > footer nav a[aria-current]');
     }
 
+    showAll() {
+        this.mainItems.forEach(el => el.classList.add('active'));
+
+        this.count = this.mainItems.length - 2;
+
+        this.next();
+    }
+
     _keyListener(e) {
         switch (e.code) {
             case 'ArrowRight':
-            case 'Space':
                 this.next();
                 break;
             case 'ArrowLeft':
                 this.prev();
+                break;
+            case 'Space':
+                this.showAll();
                 break;
         }
     }
